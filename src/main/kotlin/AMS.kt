@@ -1,12 +1,17 @@
+import java.util.*
+
 fun main(args: Array<String>) {
-        println("Finally! Good evening to us ${args[0]}, dammit!")
-        val isUnit = println("This is an expression")
-        println(isUnit)
+        println("Feeding time with ${args[0]}, dammit!")
+        feedTheFish()
+}
 
-        val temperature = 10
-        val isHot = if (temperature > 50) true else false
-        println(isHot)
+fun feedTheFish() {
+        val day = "Tuesday"
+        val food = "pellets"
+        println("Today is $day and the fish eat $food")
+}
 
-        val message = "You are ${ if (temperature > 50) "fried" else "safe"} fish"
-        println(message)
+fun randomDay() : String {
+        val week = listOf("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
+        return week[Random().nextInt(7)]
 }
