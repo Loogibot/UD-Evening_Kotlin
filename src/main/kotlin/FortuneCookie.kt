@@ -1,10 +1,8 @@
 fun main(args: Array<String>) {
-    getFortuneCookie()
-
-    print("Your fortune is: ")
+    print("Your fortune is: ${grabFortuneCookie()}")
 }
 
-fun getFortuneCookie() : String {
+fun grabFortuneCookie() : String {
     val fortuneList = listOf("You will have a great day!","Things will go well for you today.",
         "Enjoy a wonderful day of success.","Be humble and all will turn out well.",
         "Today is a good day for exercising restraint.", "Take it easy and enjoy life!",
@@ -14,13 +12,10 @@ fun getFortuneCookie() : String {
 
     print("Enter your birthday: ")
 
-    var birthday: Int? = readLine()!!.toIntOrNull()
+    var birthday = readLine()!!.toIntOrNull()
     var newBirthday = 1
     birthday ?: newBirthday
 
-    var fortuneBirthday = fortuneList(birthday/fortuneSize)
+    return fortuneList[birthday?.rem(fortuneSize)!!]
 
-    return fortuneList[fortuneBirthday]
-
-    }
 }
