@@ -3,14 +3,38 @@ import java.util.*
 fun main(args: Array<String>) {
     println("Feeding time with ${args[0]}, dammit!")
     feedTheFish()
+
+    var bubbles = 0
+    while (bubbles < 50) {
+        bubbles += 8
+        println(bubbles)
+    }
+
+    repeat(4) {
+        println("A fish is swimming, magically")
+    }
 }
+
+fun getDirtySensorReading() = 20
 
 fun shouldChangeWater(
     day: String,
     temperature: Int = 22,
-    dirty: Int = 20) : Boolean {
-    return true
+    dirty: Int = getDirtySensorReading()) : Boolean {
+
+    return when {
+        isTooHot(temperature) -> true
+        isDirty(dirty) -> true
+        isSunday(day) -> true
+        else -> false
+    }
 }
+
+fun isTooHot(temperature: Int) = temperature > 30
+
+fun isDirty(dirty: Int) = dirty > 30
+
+fun isSunday(day: String) = day == "Sunday"
 
 fun shouldChangeWater2(
     day: String,
