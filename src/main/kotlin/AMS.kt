@@ -16,7 +16,7 @@ fun shouldChangeWater2(
     day: String,
     temperature: Int = 22,
     dirty: Int = 20) : Boolean {
-    return true
+    return false
 }
 
 fun feedTheFish() {
