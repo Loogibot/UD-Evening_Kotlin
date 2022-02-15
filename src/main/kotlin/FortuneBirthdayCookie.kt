@@ -1,10 +1,9 @@
 fun main(args: Array<String>) {
-    var fortune: String
+    var fortune: String = ""
 
-    for (i in 1..10) {
+    while (!fortune.contains("Take it easy")) {
         fortune = getFortune(getBirthday())
-        println("\nYour fortune is: $fortune")
-        if (fortune.contains("Take it easy")) break;
+        println("\nYour fortune is: $fortune");
     }
 }
 
