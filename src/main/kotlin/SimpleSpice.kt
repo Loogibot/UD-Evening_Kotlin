@@ -3,6 +3,7 @@ fun main() {
     currySpice.name = "curry"
     currySpice.spiciness = "mild"
 
+
     println("Your spice is ${currySpice.name} with a spiciness of ${currySpice.heat}")
 }
 
@@ -12,4 +13,12 @@ class SimpleSpice {
 
     val heat: Int
         get() {return 5}
+}
+
+class  Spices(val name: String, spiciness: String = "mild") {
+
+    val Spices = listOf(Spice("curry", "mild"),
+        Spice("jalapeno", "hot"),
+        Spice("cinnamon", "sweet?"))
+
 }
