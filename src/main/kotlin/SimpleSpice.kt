@@ -1,18 +1,24 @@
 fun main() {
     var currySpice = SimpleSpice()
     currySpice.name = "curry"
-    currySpice.spiciness = "curry"
+    currySpice.spiciness = "mild"
 
-    println("Your spice is ${currySpice.name} with a spiciness of ${currySpice.spiciness}")
+
+    println("Your spice is ${currySpice.name} with a spiciness of ${currySpice.heat}")
 }
 
 class SimpleSpice {
     var name: String = ""
     var spiciness: String = ""
 
-    var heat: Int
-        get() = spiciness
-        set(value) {5}
+    val heat: Int
+        get() {return 5}
+}
 
+class  Spices(val name: String, spiciness: String = "mild") {
+
+    val Spices = listOf(Spice("curry", "mild"),
+        Spice("jalapeno", "hot"),
+        Spice("cinnamon", "sweet?"))
 
 }
