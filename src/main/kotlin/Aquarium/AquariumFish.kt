@@ -1,6 +1,6 @@
 package Aquarium
 
-abstract class AquariumFish {
+abstract class AquariumFishes {
     abstract val color: String
 }
 
@@ -11,13 +11,13 @@ class Shark: AquariumFish(), FishAction {
     }
 }
 
-class Plescostomus: AquariumFish(), FishAction {
+class Plescostomus: AquariumFish(), FishActions {
     override val color = "gold"
     override fun eat() {
         println("munch on algae")
     }
 }
 
-interface FishAction {
+interface FishActions {
     fun eat()
 }
