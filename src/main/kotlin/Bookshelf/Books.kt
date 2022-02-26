@@ -17,7 +17,7 @@ open class Books(var title: String,var author: String) {
 
 }
 
-class eBooks(title: String, author: String): Book(title, author) {
+class eBooks(title: String, author: String, yearWritten: Int = 200, pages: Int = 100): Book(title, author, yearWritten, pages) {
 
     var text: String = ""
 
