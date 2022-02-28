@@ -21,13 +21,15 @@ class LakeWater : WaterSupply(true) {
 }
 
 // generic class
-class Aquarium<T: WaterSupply>(val waterSupply: T ) {
+class Aquarium<out T: WaterSupply>(val waterSupply: T ) {
 
-    fun addWater() {
-        check(!waterSupply.needsProcessed) {"water supply needs processed"}
+    fun addWater(cleaner: Cleaner<T>) {
+        if(waterSupply.needsProcessed) {cleaner.clean(waterSupply)}
 
         println("adding water from $waterSupply")
     }
+
+
 
 }
 /* 'class Aquarium<T>(val waterSupply: T )'
@@ -44,6 +46,26 @@ class Aquarium<T: WaterSupply>(val waterSupply: T ) {
 *
 */
 
+interface Cleaner<in T: WaterSupply> {
+    fun clean(waterSupply: T)
+}
+
+class TapWaterCleaner: Cleaner<TapWater> {
+    override fun clean(waterSupply: TapWater) {
+        waterSupply.addChemicalCleaners()
+    }
+}
+
+fun addItemTo(aquarium: Aquarium<WaterSupply>) = println("item added")
+
+inline fun <reified R: WaterSupply> Aquarium<*>.hasWaterSupplyOfType() = waterSupply is R
+
+fun <T: WaterSupply> isWaterClean(aquarium: Aquarium<T>) {
+    println("aquarium water is clean: ${aquarium.waterSupply.needsProcessed}")
+}
+
+inline fun <reified T: WaterSupply> WaterSupply.isOfType() = this is T
+
 fun genericExample() {
 
     val aquarium = Aquarium<TapWater>(TapWater())
@@ -56,7 +78,9 @@ fun genericExample() {
 
     val aquarium1 = Aquarium(LakeWater())
     aquarium1.waterSupply.filter()
-    aquarium1.addWater()
+
+    val cleaner = TapWaterCleaner()
+    aquarium.addWater(cleaner)
 
     // this will print string, since it simply puts 'string' into waterSupply of class Aquarium
     // 'val aquarium2 = Aquarium("string")
@@ -66,4 +90,11 @@ fun genericExample() {
 
     // 'val aquarium3 = Aquarium(null)
     // println(aquarium3.waterSupply)'
+
+    addItemTo(aquarium)
+
+    isWaterClean(aquarium)
+
+    aquarium.hasWaterSupplyOfType<TapWater>()
+    aquarium.waterSupply.isOfType<LakeWater>()
 }
