@@ -1,6 +1,7 @@
 fun main(args: Array<String>) {
 
     val game = Game()
+    game.grid
     // println(game.path)
     // game.north()
     // game.south()
@@ -22,8 +23,25 @@ enum class Directions {NORTH, SOUTH, EAST, WEST, START, END}
 class Location(val width: Int, val height: Int) {
     val map = Array(width) { arrayOfNulls<String> (height)}
 
-    init {
-        map.forEach()
+    val h = height - 1
+    val w = width - 1
+
+    val trap = "TRAP"
+    val treasure = "TREASURE"
+
+        init {
+            map[0][0] = Directions.START.toString()
+
+            map[w][0] = trap
+            map[w][h/2] = trap
+            map[w/2][h] = trap
+
+            map[w-1][h/2] = treasure
+            map[w/2][h-1] = treasure
+
+            map[w][h] = Directions.END.toString()
+
+        println(map)
         }
 }
 
@@ -39,6 +57,7 @@ class Game() {
 
     fun move(where: () -> Boolean): Unit {
         where()
+        updateLocation()
     }
 
     fun makeMove(direction: String?) {
@@ -51,4 +70,12 @@ class Game() {
         }
     }
 
+    val grid = Location(4,4)
+
+    fun updateLocation() {
+
+
+    }
+
 }
+
