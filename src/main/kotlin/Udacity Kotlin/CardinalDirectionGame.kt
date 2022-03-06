@@ -1,3 +1,5 @@
+package `Udacity Kotlin`
+
 fun main(args: Array<String>) {
 
     val game = Game()
@@ -53,7 +55,7 @@ class Game() {
     val east = { path.add(Directions.EAST) }
     val west = { path.add(Directions.WEST) }
 
-    val end = { path.add(Directions.END); println("Game Over: $path"); path.clear(); }
+    val end = { path.add(Directions.END); println("`Udacity Kotlin`.Game Over: $path"); path.clear(); }
 
     fun move(where: () -> Boolean): Unit {
         where()

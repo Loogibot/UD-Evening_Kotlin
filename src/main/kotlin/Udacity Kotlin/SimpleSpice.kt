@@ -1,3 +1,5 @@
+package `Udacity Kotlin`
+
 fun main() {
     var currySpice = SimpleSpice()
     currySpice.name = "curry"
@@ -17,8 +19,10 @@ class SimpleSpice {
 
 class  Spices(val name: String, spiciness: String = "mild") {
 
-    val Spices = listOf(Spice("curry", "mild"),
+    val Spices = listOf(
+        Spice("curry", "mild"),
         Spice("jalapeno", "hot"),
-        Spice("cinnamon", "sweet?"))
+        Spice("cinnamon", "sweet?")
+    )
 
 }

@@ -6,7 +6,7 @@ interface AquariumAction {
     fun clean()
     fun catchFish()
     fun swim() {
-        println("swim")
+        println("`Udacity Kotlin`.swim")
     }
 }
 

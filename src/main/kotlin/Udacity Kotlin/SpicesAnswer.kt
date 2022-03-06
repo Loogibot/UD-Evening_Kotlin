@@ -1,3 +1,5 @@
+package `Udacity Kotlin`
+
 fun main(array: Array<String>) {
     val spice = Spice("cayenne", spiciness = "spicy")
     val spicelist = spices1.filter {it.heat < 5}

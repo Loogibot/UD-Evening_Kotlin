@@ -1,4 +1,4 @@
-
+package `Udacity Kotlin`
 fun main(args: Array<String>) {
     println("\nYour fortune is: ${getFortuneCookie()}")
 }
