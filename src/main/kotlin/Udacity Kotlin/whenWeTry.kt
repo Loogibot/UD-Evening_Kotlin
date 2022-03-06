@@ -1,3 +1,5 @@
+package `Udacity Kotlin`
+
 fun main(args: Array<String>) {
 
     val input = readLine()!!

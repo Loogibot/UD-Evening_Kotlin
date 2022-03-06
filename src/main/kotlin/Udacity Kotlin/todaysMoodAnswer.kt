@@ -1,3 +1,5 @@
+package `Udacity Kotlin`
+
 fun main(args: Array<String>) {
     println(whatShouldIDoToday("happy", "sunny"))
     println(whatShouldIDoToday("sad"))

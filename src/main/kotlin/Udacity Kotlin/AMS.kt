@@ -1,3 +1,5 @@
+package `Udacity Kotlin`
+
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -46,7 +48,8 @@ fun getDirtySensorReading() = 20
 fun shouldChangeWater(
     day: String,
     temperature: Int = 22,
-    dirty: Int = getDirtySensorReading()) : Boolean {
+    dirty: Int = getDirtySensorReading()
+) : Boolean {
 
     return when {
         isTooHot(temperature) -> true
@@ -100,7 +103,7 @@ fun updateDirty(dirty: Int, operation: (Int) -> Int): Int {
 fun dirtyProcessor() {
     dirty = updateDirty(dirty, waterFilter)
     dirty = updateDirty(dirty, ::feedFish)
-    dirty = updateDirty(dirty) {dirty -> dirty + 50}
+    dirty = updateDirty(dirty) { dirty -> dirty + 50}
 
 }
 
