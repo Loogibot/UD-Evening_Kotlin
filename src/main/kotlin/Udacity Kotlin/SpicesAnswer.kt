@@ -2,7 +2,7 @@ package `Udacity Kotlin`
 
 fun main(array: Array<String>) {
     val spice = Spice("cayenne", spiciness = "spicy")
-    val spicelist = spices1.filter {it.heat < 5}
+    val spicelist = spices1.filter { it.heat < 5 }
     fun makeSalt() = Spice("Salt")
 
     println(spicelist)

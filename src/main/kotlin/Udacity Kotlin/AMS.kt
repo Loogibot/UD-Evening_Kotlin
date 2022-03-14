@@ -22,16 +22,16 @@ fun main(args: Array<String>) {
 fun eagerExample() {
     val decorations = listOf("rock", "pagoda", "plastic", "plastic plant", "alligator", "flowerpot")
 
-    val eager = decorations.filter {it[0] == 'p'} // 'x' will iterate over each it with that char
+    val eager = decorations.filter { it[0] == 'p' } // 'x' will iterate over each it with that char
     println(eager)
 
-    val solid = decorations.filter {it == ""} // will assign
+    val solid = decorations.filter { it == "" } // will assign
     println(solid)
 
-    val filtered = decorations.asSequence().filter { it[0] == 'p'}
+    val filtered = decorations.asSequence().filter { it[0] == 'p' }
     println(filtered)
     println(filtered.toList())
-    
+
     val lazyMap = decorations.asSequence().map {
         println("map: $it")
     }
@@ -49,7 +49,7 @@ fun shouldChangeWater(
     day: String,
     temperature: Int = 22,
     dirty: Int = getDirtySensorReading()
-) : Boolean {
+): Boolean {
 
     return when {
         isTooHot(temperature) -> true
@@ -68,7 +68,8 @@ fun isSunday(day: String) = day == "Sunday"
 fun shouldChangeWater2(
     day: String,
     temperature: Int = 22,
-    dirty: Int = 20) : Boolean {
+    dirty: Int = 20
+): Boolean {
     return false
 }
 
@@ -84,15 +85,15 @@ fun feedTheFish() {
     if (shouldChangeWater(day)) {
         println("Change the water today")
     }
-    
-    swim(5,"slow")
+
+    swim(5, "slow")
 
     dirtyProcessor()
 }
 
 var dirty = 20
-val waterFilter = {dirty: Int -> dirty/2}
-val waterFilter1: (Int) -> Int = { dirty -> dirty / 2}
+val waterFilter = { dirty: Int -> dirty / 2 }
+val waterFilter1: (Int) -> Int = { dirty -> dirty / 2 }
 
 fun feedFish(dirty: Int) = dirty + 10
 
@@ -103,7 +104,7 @@ fun updateDirty(dirty: Int, operation: (Int) -> Int): Int {
 fun dirtyProcessor() {
     dirty = updateDirty(dirty, waterFilter)
     dirty = updateDirty(dirty, ::feedFish)
-    dirty = updateDirty(dirty) { dirty -> dirty + 50}
+    dirty = updateDirty(dirty) { dirty -> dirty + 50 }
 
 }
 
@@ -111,12 +112,12 @@ fun swim(time: Int, speed: String = "fast") {
     println("Swimming $speed")
 }
 
-fun randomDay() : String {
-    val week = listOf("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
+fun randomDay(): String {
+    val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
     return week[Random().nextInt(7)]
 }
 
-fun fishFood (day: String) : String {
+fun fishFood(day: String): String {
     var food = "fasting"
 
     return when (day) {

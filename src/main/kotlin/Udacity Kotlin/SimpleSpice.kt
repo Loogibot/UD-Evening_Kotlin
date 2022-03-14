@@ -14,10 +14,12 @@ class SimpleSpice {
     var spiciness: String = ""
 
     val heat: Int
-        get() {return 5}
+        get() {
+            return 5
+        }
 }
 
-class  Spices(val name: String, spiciness: String = "mild") {
+class Spices(val name: String, spiciness: String = "mild") {
 
     val Spices = listOf(
         Spice("curry", "mild"),

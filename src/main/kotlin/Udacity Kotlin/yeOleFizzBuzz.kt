@@ -1,15 +1,13 @@
 package `Udacity Kotlin`
 
 fun fizzBuzz(n: Int): Unit {
-    for ( i in 1..n) {
+    for (i in 1..n) {
         if (i % 3 == 0) {
             println("Fizz")
-        }
-        else if (i % 5 == 0 ) {
+        } else if (i % 5 == 0) {
             println("Buzz")
 
-        }
-        else {
+        } else {
             println(i)
         }
         if (i % 5 == 0 && i % 3 == 0) {

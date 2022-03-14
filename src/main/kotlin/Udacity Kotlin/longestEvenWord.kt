@@ -4,7 +4,7 @@ fun longestEvenWord(sentence: String): String {
 
     val wordFilter = sentence.filter { it.isLetterOrDigit() || it.isWhitespace() }
 
-    val wordSeparate: List<String> = wordFilter.split(" ").map {it.trim() }
+    val wordSeparate: List<String> = wordFilter.split(" ").map { it.trim() }
 
     val wordByLengths = wordSeparate.sortedByDescending { it.length }
 
