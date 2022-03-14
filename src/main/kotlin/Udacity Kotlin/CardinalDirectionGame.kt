@@ -20,10 +20,10 @@ fun main(args: Array<String>) {
     }
 }
 
-enum class Directions {NORTH, SOUTH, EAST, WEST, START, END}
+enum class Directions { NORTH, SOUTH, EAST, WEST, START, END }
 
 class Location(val width: Int, val height: Int) {
-    val map = Array(width) { arrayOfNulls<String> (height)}
+    val map = Array(width) { arrayOfNulls<String>(height) }
 
     val h = height - 1
     val w = width - 1
@@ -31,23 +31,23 @@ class Location(val width: Int, val height: Int) {
     val trap = "TRAP"
     val treasure = "TREASURE"
 
-        init {
-            map[0][0] = Directions.START.toString()
+    init {
+        map[0][0] = Directions.START.toString()
 
-            map[w][0] = trap
-            map[w][h/2] = trap
-            map[w/2][h] = trap
+        map[w][0] = trap
+        map[w][h / 2] = trap
+        map[w / 2][h] = trap
 
-            map[w-1][h/2] = treasure
-            map[w/2][h-1] = treasure
+        map[w - 1][h / 2] = treasure
+        map[w / 2][h - 1] = treasure
 
-            map[w][h] = Directions.END.toString()
+        map[w][h] = Directions.END.toString()
 
         println(map)
-        }
+    }
 }
 
-class Game() {
+class Game {
     var path = mutableListOf<Directions>(Directions.START)
 
     val north = { path.add(Directions.NORTH) }
@@ -64,15 +64,15 @@ class Game() {
 
     fun makeMove(direction: String?) {
         when (direction) {
-        "n" -> move(north)
-        "s" -> move(south)
-        "e" -> move(east)
-        "w" -> move(west)
-        else -> end
+            "n" -> move(north)
+            "s" -> move(south)
+            "e" -> move(east)
+            "w" -> move(west)
+            else -> end
         }
     }
 
-    val grid = Location(4,4)
+    val grid = Location(4, 4)
 
     fun updateLocation() {
 
